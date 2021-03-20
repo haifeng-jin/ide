@@ -1,4 +1,4 @@
-FROM jhfjhfj1/ide:latest
+FROM haifengjin/ide:latest
 
 RUN git clone https://github.com/keras-team/autokeras.git
 RUN pip install -e "autokeras/[tests]"
