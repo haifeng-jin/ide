@@ -1,0 +1,22 @@
+session_name: ak
+windows:
+- window_name: vim
+  focus: true
+  panes:
+    - shell_command:           # pane no. 1e
+      - cd ~/workspace/autokeras
+      - vim autokeras/__init__.py
+- window_name: term
+  panes:
+    - shell_command:           # pane no. 1e
+      - cd ~/workspace/autokeras
+- window_name: python
+  panes:
+    - shell_command:           # pane no. 1e
+      - cd ~/workspace/autokeras
+      - python
+- window_name: watch
+  layout: main-horizontal
+  panes:
+    - watch gpustat
+    - htop

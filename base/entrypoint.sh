@@ -16,7 +16,7 @@ if [ ! -z "$GIT_USER_NAME" ] && [ ! -z "$GIT_USER_EMAIL" ]; then
     git config --global user.email "$GIT_USER_EMAIL"
 fi
 
-FILE=/setup.sh
+FILE=/home/me/setup.sh
 if test -f "$FILE"; then
     source $FILE
 fi

@@ -13,8 +13,10 @@ RUN add-apt-repository ppa:jonathonf/vim
 RUN apt update
 RUN apt install -y \
     git vim sudo \
-    zsh tmux openssh-client \
+    zsh tmux tmuxp htop openssh-client \
     curl less man
+RUN pip install --ignore-installed PyYAML
+RUN pip install --upgrade tmuxp
 RUN echo "%me ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 # zsh
@@ -33,6 +35,6 @@ RUN su - me -c "vim +PlugInstall +qa"
 # Entrypoint script does switches u/g ID's and `chown`s everything
 COPY entrypoint.sh /bin/entrypoint.sh
 # Set working directory to /workspace
-WORKDIR /workspace
+WORKDIR /home/me/workspace
 # Default entrypoint, can be overridden
 CMD ["bash", "/bin/entrypoint.sh"]

@@ -1,5 +1,5 @@
 docker run -it --rm \
-    -v ~/git/autokeras:/workspace \
+    -v ~/git/autokeras:/home/me/workspace/autokeras \
     -e HOST_USER_ID=$(id -u $USER) \
     -e HOST_GROUP_ID=$(id -g $USER) \
     -e GIT_USER_NAME="Haifeng Jin" \
