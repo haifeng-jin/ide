@@ -1,0 +1,7 @@
+session_name: default
+windows:
+- window_name: term
+  focus: true
+  panes:
+    - shell_command:           # pane no. 1e
+      - cd ~/workspace/

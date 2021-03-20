@@ -21,3 +21,7 @@ source $ZSH/oh-my-zsh.sh
 bindkey -v vi
 # bind key for auto completion
 bindkey '^n' autosuggest-accept
+FILE=/home/me/tmuxp_config.yaml
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ] && test -f "$FILE"; then
+  exec tmuxp load /home/me/tmuxp_config.yaml
+fi

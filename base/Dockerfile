@@ -23,10 +23,7 @@ RUN echo "%me ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 RUN git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 RUN git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-COPY zshrc /home/me/.zshrc
 
-# RUN echo -e "me\nme" | passwd me
-# USER me
 ## vim
 RUN su - me -c "git clone https://github.com/haifeng-jin/vim-config.git ~/.vim"
 RUN su - me -c "curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
@@ -34,6 +31,8 @@ RUN su - me -c "vim +PlugInstall +qa"
 
 # Entrypoint script does switches u/g ID's and `chown`s everything
 COPY entrypoint.sh /bin/entrypoint.sh
+COPY zshrc /home/me/.zshrc
+COPY tmuxp_config.yaml /home/me/tmuxp_config.yaml
 # Set working directory to /workspace
 WORKDIR /home/me/workspace
 # Default entrypoint, can be overridden
