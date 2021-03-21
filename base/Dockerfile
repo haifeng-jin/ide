@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:latest
+FROM tensorflow/tensorflow:latest-gpu
 
 # Create a user called 'me'
 RUN useradd -ms /bin/zsh me
