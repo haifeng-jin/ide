@@ -2,6 +2,7 @@
 
 USER_ID=${HOST_USER_ID:-9001}
 GROUP_ID=${HOST_GROUP_ID:-9001}
+
 # Change 'me' uid to host user's uid
 if [ ! -z "$USER_ID" ] && [ "$(id -u me)" != "$USER_ID" ]; then
     # Create the user group if it does not exist
@@ -9,13 +10,14 @@ if [ ! -z "$USER_ID" ] && [ "$(id -u me)" != "$USER_ID" ]; then
     usermod --non-unique --uid "$USER_ID" --gid "$GROUP_ID" me
 fi
 
-# Git config
+# Config git username and email.
 echo $GIT_USER_NAME > ~/temp
 if [ ! -z "$GIT_USER_NAME" ] && [ ! -z "$GIT_USER_EMAIL" ]; then
     git config --global user.name "$GIT_USER_NAME"
     git config --global user.email "$GIT_USER_EMAIL"
 fi
 
+# Execute setup.sh if exist.
 FILE=/home/me/setup.sh
 if test -f "$FILE"; then
     source $FILE
