@@ -1,0 +1,12 @@
+session_name: book
+windows:
+- window_name: vim
+  focus: true
+  panes:
+    - shell_command:           # pane no. 1e
+      - cd ~/workspace/book
+      - vim .
+- window_name: term
+  panes:
+    - shell_command:           # pane no. 1e
+      - cd ~/workspace/book
