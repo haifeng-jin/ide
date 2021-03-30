@@ -1,0 +1,18 @@
+session_name: notes
+windows:
+- window_name: vim
+  focus: true
+  panes:
+    - shell_command:           # pane no. 1e
+      - cd ~/workspace/notes
+      - vim .
+- window_name: term
+  panes:
+    - shell_command:           # pane no. 1e
+      - cd ~/workspace/notes
+- window_name: host
+  panes:
+    - shell_command:           # pane no. 1e
+      - cd ~/workspace/notes
+      - python autogen.py
+      - python -m mkdocs serve --dev-addr 0.0.0.0:8000
