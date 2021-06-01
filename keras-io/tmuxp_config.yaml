@@ -1,0 +1,23 @@
+session_name: ak
+windows:
+- window_name: vim
+  focus: true
+  panes:
+    - shell_command:           # pane no. 1e
+      - cd ~/workspace/keras-io
+      - vim .
+- window_name: term
+  panes:
+    - shell_command:           # pane no. 1e
+      - cd ~/workspace/keras-io
+- window_name: serve
+  panes:
+    - shell_command:           # pane no. 1e
+      - cd ~/workspace/keras-io/scripts
+      - python autogen.py make
+      - python autogen.py serve
+- window_name: watch
+  layout: main-horizontal
+  panes:
+    - watch gpustat
+    - htop
