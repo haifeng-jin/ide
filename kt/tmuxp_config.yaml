@@ -5,7 +5,7 @@ windows:
   panes:
     - shell_command:           # pane no. 1e
       - cd ~/workspace/keras-tuner
-      - vim kerastuner/__init__.py
+      - vim keras_tuner/__init__.py
 - window_name: term
   panes:
     - shell_command:           # pane no. 1e
