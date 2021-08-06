@@ -1,10 +1,8 @@
-FROM tensorflow/tensorflow:latest-gpu
+FROM python:3.9
 
 # Create a user called 'me'
 RUN useradd -ms /bin/zsh me
-RUN usermod -aG sudo me
-RUN echo -e "me\nme" | passwd me
-RUN echo -e "root\nroot" | passwd root
+RUN usermod -aG sudo me -p $(openssl passwd -1 "me")
 
 # Do everything from now in that users home directory
 WORKDIR /home/me
@@ -13,10 +11,9 @@ RUN apt update
 
 # apt installs
 RUN apt install -y software-properties-common
-RUN add-apt-repository ppa:jonathonf/vim
 RUN apt update
 RUN apt install -y \
-    git vim sudo \
+    git vim sudo vim-nox\
     zsh tmux tmuxp htop openssh-client \
     curl less man ruby
 RUN pip install --upgrade pip
@@ -38,6 +35,7 @@ COPY entrypoint.sh /bin/entrypoint.sh
 COPY zshrc /home/me/.zshrc
 # The startup tmuxp config file
 COPY tmuxp_config.yaml /home/me/tmuxp_config.yaml
+RUN chmod -R a+r /home/me
 # Set working directory to /workspace
 WORKDIR /home/me/workspace
 # Default entrypoint, can be overridden
