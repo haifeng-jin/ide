@@ -1,0 +1,22 @@
+session_name: keras
+windows:
+- window_name: vim
+  focus: true
+  panes:
+    - shell_command:           # pane no. 1e
+      - cd ~/workspace/keras
+      - vim keras/__init__.py
+- window_name: term
+  panes:
+    - shell_command:           # pane no. 1e
+      - cd ~/workspace/keras
+- window_name: python
+  panes:
+    - shell_command:           # pane no. 1e
+      - cd ~/workspace/keras
+      - python
+- window_name: watch
+  layout: main-horizontal
+  panes:
+    - watch gpustat
+    - htop
