@@ -1,0 +1,24 @@
+session_name: kt
+windows:
+- window_name: vim
+  focus: true
+  panes:
+    - shell_command:           # pane no. 1e
+      - cd ~/git/keras-tuner
+      - source ~/venv/kt/bin/activate
+      - vim keras_tuner/__init__.py
+- window_name: term
+  panes:
+    - shell_command:           # pane no. 1e
+      - cd ~/git/keras-tuner
+      - source ~/venv/kt/bin/activate
+- window_name: python
+  panes:
+    - shell_command:           # pane no. 1e
+      - cd ~/git/keras-tuner
+      - source ~/venv/kt/bin/activate
+      - python
+- window_name: watch
+  panes:
+    - shell_command:           # pane no. 1e
+      - htop
