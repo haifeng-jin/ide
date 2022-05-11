@@ -1,0 +1,21 @@
+session_name: notes
+windows:
+- window_name: vim
+  focus: true
+  panes:
+    - shell_command:           # pane no. 1e
+      - cd ~/git/notes
+      - source ~/venv/ak/bin/activate
+      - vim .
+- window_name: term
+  panes:
+    - shell_command:           # pane no. 1e
+      - cd ~/git/notes
+      - source ~/venv/ak/bin/activate
+- window_name: host
+  panes:
+    - shell_command:           # pane no. 1e
+      - cd ~/git/notes
+      - source ~/venv/ak/bin/activate
+      - python autogen.py
+      - python -m mkdocs serve --dev-addr 127.0.0.1:8000
